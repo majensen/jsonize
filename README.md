@@ -6,9 +6,9 @@
 
     $ perl -MJSONize -le '$j=jsonize("my.json"); print $j->{thingy};'
 
-    $ perl -MJSONize -e '$j={"this":"also","works":[1,2,3]}; print jsonize($j);'
+    $ perl -MJSONize -le '$j="{\"this\":\"also\",\"works\":[1,2,3]}"; print jsonize($j)->{"this"};' # also
 
-    $ perl -MJSONize -e 'pretty_json(); $j=jsonize("ugly.json"); print jsonize($j);'
+    $ perl -MJSONize -e 'pretty_json(); $j=jsonize("ugly.json"); print jsonize($j);' # pretty!
 
 # DESCRIPTION
 
@@ -42,4 +42,4 @@ The underlying [JSON](https://metacpan.org/pod/JSON) object is
 # AUTHOR
 
     Mark A. Jensen
-    majensen -at- cpan -dot- org
+    mark -dot- jensen -at- nih -dot- gov

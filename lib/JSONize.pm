@@ -47,9 +47,9 @@ sub looks_like_json {
 
  $ perl -MJSONize -le '$j=jsonize("my.json"); print $j->{thingy};'
 
- $ perl -MJSONize -e '$j={"this":"also","works":[1,2,3]}; print jsonize($j);'
+ $ perl -MJSONize -le '$j="{\"this\":\"also\",\"works\":[1,2,3]}"; print jsonize($j)->{"this"};' # also
 
- $ perl -MJSONize -e 'pretty_json(); $j=jsonize("ugly.json"); print jsonize($j);'
+ $ perl -MJSONize -e 'pretty_json(); $j=jsonize("ugly.json"); print jsonize($j);' # pretty!
 
 =head1 DESCRIPTION
 
