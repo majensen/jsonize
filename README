@@ -1,0 +1,6 @@
+JSONize - Use JSON easily in one-liners
+Long live Module::Build :
+
+$ perl Build.PL
+$ ./Build test
+$ ./Build install

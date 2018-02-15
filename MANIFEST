@@ -1,4 +1,5 @@
 Build.PL
+README.md
 lib/JSONize.pm
 MANIFEST
 t/001_simple.t
