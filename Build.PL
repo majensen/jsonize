@@ -13,17 +13,13 @@ my $build = Module::Build->new(
    },
   configure_requires => {
     'Module::Build' => 0
-   }
+   },
+  meta_merge => {
+    resources => {
+      bugtracker => 'http://rt.cpan.org/Public/Dist/Display.html?Name=JSONize',
+      repository => 'https://github.com/majensen/jsonize'
+     }
+   },
  );
 
 $build->create_build_script;
-
-
-
-
-
-
-
-
-
-

@@ -33,6 +33,14 @@
       }
    },
    "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=JSONize"
+      },
+      "repository" : {
+         "url" : "https://github.com/majensen/jsonize"
+      }
+   },
    "version" : "0.1",
    "x_serialization_backend" : "JSON::PP version 2.27300_01"
 }

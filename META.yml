@@ -18,5 +18,8 @@ provides:
   JSON::ize:
     file: lib/JSON/ize.pm
     version: '0.1'
+resources:
+  bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=JSONize
+  repository: https://github.com/majensen/jsonize
 version: '0.1'
 x_serialization_backend: 'CPAN::Meta::YAML version 0.018'
