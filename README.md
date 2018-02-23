@@ -1,39 +1,49 @@
 # NAME
 
-    JSONize - Use JSON easily in one-liners
+    JSON::ize - Use JSON easily in one-liners
 
 # SYNOPSIS
 
-    $ perl -MJSONize -le '$j=jsonize("my.json"); print $j->{thingy};'
+    $ perl -MJSON::ize -le '$j=jsonize("my.json"); print $j->{thingy};'
 
-    $ perl -MJSONize -le '$j="{\"this\":\"also\",\"works\":[1,2,3]}"; print jsonize($j)->{"this"};' # also
+    $ perl -MJSON::ize -le '$j="{\"this\":\"also\",\"works\":[1,2,3]}"; print jsonize($j)->{"this"};' # also
 
-    $ perl -MJSONize -e 'pretty_json(); $j=jsonize("ugly.json"); print jsonize($j);' # pretty!
+    $ perl -MJSON::ize -e 'pretty_json(); $j=jsonize("ugly.json"); print jsonize($j);' # pretty!
+
+    $ cat t/sample/good.json | \
+      perl -MJSON::ize -lne 'parsej;' -e 'END{ print J->{good} }'
 
 # DESCRIPTION
 
-JSONize exports a function, `jsonize()`, that will do what you mean with the argument. 
+JSON::ize exports a function, `jsonize()`, that will do what you mean with the argument. 
 If argument is a filename, it will try to read the file and decode it as JSON.
 If argument is a string that looks like JSON, it will try to encode it.
 If argument is a Perl hashref or arrayref, it will try to encode it.
 
 The underlying [JSON](https://metacpan.org/pod/JSON) object is
 
-    $JSONize::JOBJ
+    $JSON::ize::JOBJ
 
 # METHODS
 
-- jsonize($j)
+- jsonize($j), jsonise($j), J($j)
 
-        Try to DWYM.
+    Try to DWYM.
+    If called without argument, return the last value returned. Use this to retrieve
+    after ["parsej"](#parsej).
+
+- parsej
+
+    Parse a piped-in stream of json. Use jsonize() (without arg) to retrieve the object.
+    (Uses ["incr\_parse" in JSON](https://metacpan.org/pod/JSON#incr_parse).)
 
 - pretty\_json()
 
-        Output pretty (indented) json.
+    Output pretty (indented) json.
 
 - ugly\_json()
 
-        Output json with no extra whitespace.
+    Output json with no extra whitespace.
 
 # SEE ALSO
 
@@ -42,4 +52,5 @@ The underlying [JSON](https://metacpan.org/pod/JSON) object is
 # AUTHOR
 
     Mark A. Jensen
+    CPAN: MAJENSEN
     mark -dot- jensen -at- nih -dot- gov

@@ -25,5 +25,11 @@ is jsonize("{\"this\":\"also\",\"works\":[1,2,3]}")->{"this"}, 'also';
 dies_ok { jsonize('{ "whoa":}') };
 dies_ok { jsonize('this does not work') };
 dies_ok { jsonize(File::Spec->catfile($tdir,"bad.json")) };
-
+if ($^O =~ /darwin|linux/){
+  my $cmd = "cat ".
+    File::Spec->catfile($tdir,"good.json") .
+      " | perl -Ilib -I../lib -MJSON::ize -ne 'parsej;' -e 'END{ print J->{good} }'";
+  my ($try) = `$cmd`;
+  is $try, "json";
+}
 done_testing();
