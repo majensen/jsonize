@@ -28,7 +28,6 @@ inc/
 # ExtUitls::MakeMaker
 /blib/
 /_eumm/
-/*.gz
 /Makefile
 /Makefile.old
 /MANIFEST.bak

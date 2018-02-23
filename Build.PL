@@ -1,6 +1,6 @@
 use Module::Build;
 my $build = Module::Build->new(
-  dist_name => 'JSONize',
+  dist_name => 'JSON-ize',
   dist_abstract => 'Use JSON easily in one-liners',
   dist_author => 'Mark A. Jensen',
   dist_version_from => 'lib/JSON/ize.pm',

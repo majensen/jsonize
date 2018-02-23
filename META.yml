@@ -13,7 +13,7 @@ license: unknown
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: '1.4'
-name: JSONize
+name: JSON-ize
 provides:
   JSON::ize:
     file: lib/JSON/ize.pm
