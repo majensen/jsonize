@@ -6,6 +6,10 @@
 
     $ perl -MJSON::ize -le '$j=jsonize("my.json"); print $j->{thingy};'
 
+    $ perl -MJSON::ize -le 'J("my.json"); print J->{thingy};' # short
+
+    $ cat my.json | perl -MJSON::ize -lne 'parsej; END{ print J->{thingy}}' # another way
+
     $ perl -MJSON::ize -le '$j="{\"this\":\"also\",\"works\":[1,2,3]}"; print jsonize($j)->{"this"};' # also
 
     $ perl -MJSON::ize -e 'pretty_json(); $j=jsonize("ugly.json"); print jsonize($j);' # pretty!
