@@ -27,8 +27,8 @@
       }
    },
    "provides" : {
-      "JSONize" : {
-         "file" : "lib/JSONize.pm",
+      "JSON::ize" : {
+         "file" : "lib/JSON/ize.pm",
          "version" : "0.1"
       }
    },

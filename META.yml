@@ -15,8 +15,8 @@ meta-spec:
   version: '1.4'
 name: JSONize
 provides:
-  JSONize:
-    file: lib/JSONize.pm
+  JSON::ize:
+    file: lib/JSON/ize.pm
     version: '0.1'
 version: '0.1'
 x_serialization_backend: 'CPAN::Meta::YAML version 0.018'
