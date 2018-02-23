@@ -1,6 +1,6 @@
 Build.PL
 README.md
-lib/JSONize.pm
+lib/JSON/ize.pm
 MANIFEST
 t/001_simple.t
 t/002_pod.t
