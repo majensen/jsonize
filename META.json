@@ -24,12 +24,17 @@
          "requires" : {
             "Module::Build" : "0"
          }
+      },
+      "runtime" : {
+         "requires" : {
+            "JSON" : "2"
+         }
       }
    },
    "provides" : {
       "JSON::ize" : {
          "file" : "lib/JSON/ize.pm",
-         "version" : "0.1"
+         "version" : "0.101"
       }
    },
    "release_status" : "stable",
@@ -41,6 +46,6 @@
          "url" : "https://github.com/majensen/jsonize"
       }
    },
-   "version" : "0.1",
+   "version" : "0.101",
    "x_serialization_backend" : "JSON::PP version 2.27300_01"
 }
