@@ -4,8 +4,8 @@ my $build = Module::Build->new(
   dist_abstract => 'Use JSON easily in one-liners',
   dist_author => 'Mark A. Jensen',
   dist_version_from => 'lib/JSON/ize.pm',
-  module_requires => {
-    'JSON' => 0
+  requires => {
+    'JSON' => 2,
    },
   build_requires => {
     'Test::More' => 0,

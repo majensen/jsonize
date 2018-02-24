@@ -7,7 +7,7 @@ our $JOBJ = JSON->new();
 our $_last_out = "";
 
 our @EXPORT = qw/jsonize jsonise J parsej pretty_json ugly_json/;
-our $VERSION = "0.1";
+our $VERSION = "0.101";
 
 sub jobj { $JOBJ }
 
@@ -60,14 +60,16 @@ sub looks_like_json {
 
  $ perl -MJSON::ize -le 'J("my.json"); print J->{thingy};' # short
 
+ $ perl -MJSON::ize -le 'print J("my.json")->{thingy};' # shorter
+
+
  $ cat my.json | perl -MJSON::ize -lne 'parsej; END{ print J->{thingy}}' # another way
 
  $ perl -MJSON::ize -le '$j="{\"this\":\"also\",\"works\":[1,2,3]}"; print jsonize($j)->{"this"};' # also
 
  $ perl -MJSON::ize -e 'pretty_json(); $j=jsonize("ugly.json"); print jsonize($j);' # pretty!
 
- $ cat t/sample/good.json | \
-   perl -MJSON::ize -lne 'parsej;' -e 'END{ print J->{good} }'
+ $ perl -MJSON::ize -e 'ugly_json; print J(J("indented.json"));' # strip whsp
 
 
 =head1 DESCRIPTION
