@@ -1,7 +1,9 @@
 Build.PL
+Changes
 README.md
 lib/JSON/ize.pm
 MANIFEST
+LICENSE
 t/001_simple.t
 t/002_pod.t
 t/sample/bad.json
