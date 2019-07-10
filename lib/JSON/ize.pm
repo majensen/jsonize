@@ -1,17 +1,20 @@
 package JSON::ize;
 use base Exporter;
 use JSON::MaybeXS;
-use YAML::Any;
+use YAML::Any qw/Dump Load LoadFile DumpFile/;
+use Try::Tiny;
 use strict;
 use warnings;
 
 our $JOBJ = JSON::MaybeXS->new();
+our $YOBJ;
 our $_last_out = "";
 
 our @EXPORT = qw/jsonize jsonise J parsej pretty_json ugly_json/;
-our $VERSION = "0.104";
+our $VERSION = "0.200";
 
 sub jobj { $JOBJ }
+sub yobj { $YOBJ }
 
 sub jsonize (;$) {
   my $inp = shift;
@@ -36,7 +39,22 @@ sub jsonize (;$) {
 	open $f, "$inp" or die "Problem with file '$inp' : $!";
       }
       $j = <$f>;
-      return $_last_out = jobj()->decode($j);
+      try {
+        $_last_out = jobj()->decode($j);
+      } catch {
+        /at character offset/ && do { # JSON error
+          my $jerr = $_;
+          if (looks_like_json($j)) { # probably really was JSON
+            die "JSON decode barfed.\nJSON err: $jerr"
+          }
+          try { # might be YAML
+            $_last_out = Load($j);
+          } catch {
+            die "Both JSON and YAML decodes barfed.\nJSON err: $jerr\nYAML err: $_";
+          };
+        };
+      };
+      return $_last_out;
     }
   }
 }
@@ -130,7 +148,7 @@ L<JSON>, L<JSON::XS>.
 
 =head1 LICENSE
 
-Copyright (c) 2018 Mark A. Jensen.
+Copyright (c) 2018, 2019 Mark A. Jensen.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
