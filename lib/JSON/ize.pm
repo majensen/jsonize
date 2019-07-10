@@ -1,10 +1,11 @@
 package JSON::ize;
 use base Exporter;
-use JSON 2.00;
+use JSON::MaybeXS;
+use YAML::Any;
 use strict;
 use warnings;
 
-our $JOBJ = JSON->new();
+our $JOBJ = JSON::MaybeXS->new();
 our $_last_out = "";
 
 our @EXPORT = qw/jsonize jsonise J parsej pretty_json ugly_json/;
