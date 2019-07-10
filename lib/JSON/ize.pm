@@ -14,7 +14,6 @@ our @EXPORT = qw/jsonize jsonise J parsej pretty_json ugly_json/;
 our $VERSION = "0.200";
 
 sub jobj { $JOBJ }
-sub yobj { $YOBJ }
 
 sub jsonize (;$) {
   my $inp = shift;
@@ -77,11 +76,15 @@ sub looks_like_json {
 
 =head1 NAME
 
- JSON::ize - Use JSON easily in one-liners
+ JSON::ize - Use JSON easily in one-liners - now with YAMLific action
 
 =head1 SYNOPSIS
 
  $ perl -MJSON::ize -le '$j=jsonize("my.json"); print $j->{thingy};'
+
+ $ perl -MJSON::ize -le '$j=jsonize("my.yaml"); print $j->{thingy};'
+
+ # plus yamls all the way down...
 
  # if you have PerlIO::gzip, this works
 
@@ -103,9 +106,9 @@ sub looks_like_json {
 =head1 DESCRIPTION
 
 JSON::ize exports a function, C<jsonize()>, that will do what you mean with the argument. 
-If argument is a filename, it will try to read the file and decode it as JSON.
+If argument is a filename, it will try to read the file and decode it as JSON or YAML.
 If argument is a string that looks like JSON, it will try to encode it.
-If argument is a Perl hashref or arrayref, it will try to encode it.
+If argument is a Perl hashref or arrayref, it will try to encode it as JSON.
 
 The underlying L<JSON> object is
 
