@@ -41,7 +41,7 @@
    "provides" : {
       "JSON::ize" : {
          "file" : "lib/JSON/ize.pm",
-         "version" : "0.200"
+         "version" : "0.201"
       }
    },
    "release_status" : "stable",
@@ -56,6 +56,6 @@
          "url" : "https://github.com/majensen/jsonize"
       }
    },
-   "version" : "0.200",
+   "version" : "0.201",
    "x_serialization_backend" : "JSON::PP version 2.27300_01"
 }
