@@ -1,4 +1,6 @@
 Revision history for Perl module JSON::ize
+0.202 2019-07-13
+    - fix missing dep
 0.201 2019-07-11
     - add yamlize, yamlise, Y synonyms
     - when using yamlize etc to encode, emit YAML

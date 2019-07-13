@@ -11,7 +11,7 @@ our $YOBJ;
 our $_last_out = "";
 
 our @EXPORT = qw/jsonize jsonise J yamlize yamlise Y parsej pretty_json ugly_json/;
-our $VERSION = "0.201";
+our $VERSION = "0.202";
 
 sub jobj { $JOBJ }
 

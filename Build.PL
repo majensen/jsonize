@@ -8,6 +8,7 @@ my $build = Module::Build->new(
   requires => {
     'JSON::MaybeXS' => '1.0',
     'YAML::Any' => '1.29',
+    'Try::Tiny' => 0,
     'PerlIO::gzip' => 0,
     'perl' => '5.8.0'
    },
